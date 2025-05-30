@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Weather API Test</title>
+</head>
+<body>
+  <h1>Weather API Test</h1>
+  <script>
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=London&appid=146a49bc76bbe8d605a48683680e3e0d')
+      .then(response => {
+        if (!response.ok) throw new Error('HTTP error, status = ' + response.status);
+        return response.json();
+      })
+      .then(data => {
+        console.log('Weather data:', data);
+        alert('Weather fetched! Check the console.');
+      })
+      .catch(error => {
+        console.error('Error fetching weather:', error);
+        alert('Error: ' + error.message);
+      });
+  </script>
+</body>
+</html>
